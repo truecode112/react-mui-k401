@@ -6,7 +6,7 @@ import { useCookies } from 'react-cookie'
 
 function CurrentBalanceSlider(props) {
 
-    const [value, setValue] = React.useState(Number(useCookies()[0].currentBalance || 3));
+    const [value, setValue] = React.useState(Math.log10(Number(useCookies()[0].currentBalance || 3)) - 1);
 
     const marks = [
         {

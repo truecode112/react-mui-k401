@@ -3,7 +3,6 @@ import { Slider, Typography, Input, Grid } from '@material-ui/core'
 import ValueLabelComponent from './valueLabelComponent'
 import { useCookies } from 'react-cookie'
 
-
 function ContribSlider(props) {
 
     const [value, setValue] = React.useState(Number(useCookies()[0].contribPercent || 20));
@@ -69,7 +68,7 @@ function ContribSlider(props) {
                             onChange={handleInputChange}
                             onBlur={handleBlur}
                             inputProps={{
-                                step: 10,
+                                step: 5,
                                 min: 0,
                                 max: 25,
                                 type: 'number',

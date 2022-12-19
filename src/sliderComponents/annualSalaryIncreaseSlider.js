@@ -68,7 +68,7 @@ function AnnualSalaryIncreaseSlider(props) {
                         })
                     }}
                     isNumericString
-                    prefix="%"
+                    // prefix="%"
                 />
         )
     }
@@ -90,9 +90,9 @@ function AnnualSalaryIncreaseSlider(props) {
                             id="formatted-numberformat-input"
                             InputProps={{
                                 inputComponent: NumberFormatCustom,
-                                step: 10,
+                                step: 1,
                                 min: 0,
-                                max: 100,
+                                max: 12,
                             }}
                         />
                     </Grid>

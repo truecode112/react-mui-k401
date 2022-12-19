@@ -77,59 +77,70 @@ function SalarySlider(props) {
                         <Typography gutterBottom>
                             Annual salary
                         </Typography>
-                        <TextField
-                            value={value}
-                            onChange={handleInputChange}
-                            margin="dense"
-                            fullWidth
-                            name="numberformat"
-                            id="formatted-numberformat-input"
-                            
-                            // InputProps={{
-                            //     inputComponent: NumberFormatCustom,
-                            //     tep: 1000,
-                            //     min: 1,
-                            //     max: 1000000
-                            // }}
-                        />
+                        <div style={{display:"flex"}}>
+                            <span style={{marginTop: 8, marginBottom: 4}}>$</span>
+                            <TextField
+                                value={value}
+                                onChange={handleInputChange}
+                                margin="dense"
+                                fullWidth
+                                name="numberformat"
+                                id="formatted-numberformat-input"
+                                style={{ display: "flex" }}
+                                // InputProps={{
+                                //     inputComponent: NumberFormatCustom,
+                                //     tep: 1000,
+                                //     min: 1,
+                                //     max: 1000000
+                                // }}
+                            />
+                        </div>
                     </Grid>
                     <Grid item xs={4}>
                         <Typography gutterBottom>
                             Hourly salary
                         </Typography>
-                        <TextField
-                            value={parseInt(value/52/40) }
-                            onChange={handleInputChangeHour}
-                            margin="dense"
-                            fullWidth
-                            name="numberformat1"
-                            id="formatted-numberformat-input1"
-                            // InputProps={{
-                            //     inputComponent: NumberFormatCustom,
-                            //     tep: 1000,
-                            //     min: 1,
-                            //     max: 1000000
-                            // }}
-                        />
+                        <div style={{display:"flex"}}>
+                            <span style={{marginTop: 8, marginBottom: 4}}>$</span>
+                            <TextField
+                                value={parseInt(value/52/40)}
+                                onChange={handleInputChangeHour}
+                                margin="dense"
+                                fullWidth
+                                name="numberformat"
+                                id="formatted-numberformat-input"
+                                style={{ display: "flex" }}
+                                // InputProps={{
+                                //     inputComponent: NumberFormatCustom,
+                                //     tep: 1000,
+                                //     min: 1,
+                                //     max: 1000000
+                                // }}
+                            />
+                        </div>
                     </Grid>
                     <Grid item xs={4}>
                         <Typography gutterBottom>
                             BiWeek salary
                         </Typography>
-                        <TextField
-                            value={parseInt(value/52/2)}
-                            onChange={handleInputChangeBiWeek}
-                            margin="dense"
-                            fullWidth
-                            name="numberformat2"
-                            id="formatted-numberformat-input2"
-                            // InputProps={{
-                            //     inputComponent: NumberFormatCustom,
-                            //     tep: 1000,
-                            //     min: 1,
-                            //     max: 1000000
-                            // }}
-                        />
+                        <div style={{display:"flex"}}>
+                            <span style={{marginTop: 8, marginBottom: 4}}>$</span>
+                            <TextField
+                                value={parseInt(value/52*2)}
+                                onChange={handleInputChangeBiWeek}
+                                margin="dense"
+                                fullWidth
+                                name="numberformat"
+                                id="formatted-numberformat-input"
+                                style={{ display: "flex" }}
+                                // InputProps={{
+                                //     inputComponent: NumberFormatCustom,
+                                //     tep: 1000,
+                                //     min: 1,
+                                //     max: 1000000
+                                // }}
+                            />
+                        </div>
                     </Grid>
                     {/* <Grid item xs={8}>
                         <Slider

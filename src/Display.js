@@ -34,18 +34,27 @@ class Display extends React.Component {
         console.log( "cookies", cookies)
 
         this.state = {
-            contribPercent: cookies.get('contribPercent') || 20,
-            annualSalary: cookies.get('annualSalary') || 100000,
-            annualRaise: cookies.get('annualRaise') ||5,
-            currentAge: cookies.get('currentAge') ||27,
-            retirementAge: cookies.get('retirementAge') ||55,
-            currentBalance: cookies.get('currentBalance') ||10000,
-            annualRateOfReturn: cookies.get('annualRateOfReturn') ||7,
-            riskTolerance: cookies.get('riskTolerance') ||1,
-            employerMatch: cookies.get('employerMatch') ||25,
-            employerMatchCap: cookies.get('employerMatchCap') ||6,
-            employerSetType: cookies.get('employerSetType') || 0,
+            contribPercent: Number(cookies.get('contribPercent') || 20),
+            annualSalary: Number(cookies.get('annualSalary') || 100000),
+            annualRaise: Number(cookies.get('annualRaise') || 5),
+            currentAge: Number(cookies.get('currentAge') || 27),
+            retirementAge: Number(cookies.get('retirementAge') || 55),
+            currentBalance: Number(cookies.get('currentBalance') || 10000),
+            annualRateOfReturn: Number(cookies.get('annualRateOfReturn') || 7),
+            riskTolerance: Number(cookies.get('riskTolerance') || 1),
+            employerMatch: Number(cookies.get('employerMatch') || 25),
+            employerMatchCap: Number(cookies.get('employerMatchCap') || 6),
+            employerSetType: Number(cookies.get('employerSetType') || 0),
         }
+
+        cookies.set('contribPercent', this.state.contribPercent)
+        cookies.set('annualSalary', this.state.annualSalary)
+        cookies.set('annualRaise', this.state.annualRaise)
+        cookies.set('currentAge', this.state.currentAge)
+        cookies.set('retirementAge', this.state.retirementAge)
+        cookies.set('annualRateOfReturn', this.state.annualRateOfReturn)
+        cookies.set('employerMatch', this.state.employerMatch)
+        cookies.set('employerMatchCap', this.state.employerMatchCap)
 
         this.handleContribSliderChange = this.handleContribSliderChange.bind(this)
         this.handleAnnualSalarySliderChange = this.handleAnnualSalarySliderChange.bind(this)
@@ -93,6 +102,7 @@ class Display extends React.Component {
         const { cookies } = this.props;
         this.setState({...this.state, currentBalance: val})
         cookies.set('currentBalance', val)
+        console.log(val)
     }
 
     handleRateOfReturnSlider(val) {
@@ -121,7 +131,7 @@ class Display extends React.Component {
 
     render() {
 
-        createNoMatchDatapoints(this.state)
+        // createNoMatchDatapoints(this.state)
 
         return (
                 <Paper style={{marginTop: '5%', marginBottom: '5%', marginLeft: '10%', marginRight: '10%'}}>
@@ -146,8 +156,8 @@ class Display extends React.Component {
                                 value={this.state.employerSetType} 
                                 onChange={this.handleChangeEmployer}>
 
-                                <MenuItem value={0}>EmployerMatchSlider</MenuItem>
-                                <MenuItem value={1}>EmployerMatchCapSlider</MenuItem>                                
+                                <MenuItem value={0}>Match</MenuItem>
+                                <MenuItem value={1}>Contribution</MenuItem>                                
                             </Select>
                             {
                                 this.state.employerSetType == 0 ? 

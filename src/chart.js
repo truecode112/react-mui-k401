@@ -2,13 +2,12 @@ import React from 'react'
 import { Bar } from 'react-chartjs-2'
 import { Paper, Typography, Grid, hexToRgb } from '@material-ui/core'
 
-let totalContribute = 0
 let totalEarn = 0
 
 function BarChart(props) {
 
-    totalContribute = props.matchData.totalContribute
-    totalEarn = props.matchData.totalEarn
+    const addCommas = (num) =>
+        num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
     let data = {
         labels: props.labels,
@@ -58,13 +57,13 @@ function BarChart(props) {
             }]
         }    
    }
-   
+
     return (
         <Paper style={{marginTop: '5%', marginBottom: '5%', marginLeft: '10%', marginRight: '10%'}}>
             <Grid container>
                 <Grid item xs={6} style={{padding: '25px', border: "2px" }}>
                     <Typography component="p" variant="h4">
-                        ${parseInt(props.matchData.totalEarn - props.noMatchData.totalEarn)}
+                        ${addCommas(parseInt(props.matchData.totalEarn - props.noMatchData.totalEarn))}
                     </Typography>
                     <Typography color="textSecondary">
                         Actual contributions 
@@ -72,7 +71,7 @@ function BarChart(props) {
                 </Grid>
                 <Grid item xs={6} style={{padding: '25px', border: "2px" }}>
                     <Typography component="p" variant="h4">
-                        ${parseInt(props.matchData.totalEarn)}
+                        ${addCommas(parseInt(props.matchData.totalEarn))}
                     </Typography>
                     <Typography color="textSecondary">
                         Estimated balance at retirement

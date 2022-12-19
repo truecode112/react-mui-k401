@@ -25,7 +25,7 @@ export default function({contribPercent, annualSalary, annualRaise, currentAge, 
 
         valArray.push(endOfYearTotalAfterInterest)
 
-        totalEarn += endOfYearTotalAfterInterest
+        totalEarn = endOfYearTotalAfterInterest
 
     }
 
