@@ -10,16 +10,16 @@ export default function({contribPercent, annualSalary, annualRaise, currentAge, 
 
         let effectiveRaiseForYear = (1 + (annualRaise/100)) ** i
 
-        let employeeContribition = (annualSalary * effectiveRaiseForYear) * (contribPercent/100)
+        // let employeeContribition = (annualSalary * effectiveRaiseForYear) * (contribPercent/100)
 
 
-        if (employeeContribition > 19500) {
-            employeeContribition = 19500
-        }
+        // if (employeeContribition > 19500) {
+        //     employeeContribition = 19500
+        // }
 
         let startingBalance = i === 0 ? currentBalance : valArray[i-1]
 
-        let endOfYearTotalBeforeInterest = startingBalance + employeeContribition
+        let endOfYearTotalBeforeInterest = startingBalance //+ employeeContribition
         let endOfYearTotalAfterInterest = endOfYearTotalBeforeInterest * (1 + (annualRateOfReturn/100))
 
 

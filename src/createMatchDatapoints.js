@@ -27,11 +27,11 @@ export default function({contribPercent, annualSalary, annualRaise, currentAge, 
         let endOfYearTotalBeforeInterest = startingBalance + employeeContribition
         
         if( employerSetType == 1 ){
-            console.log("employerContribution", employerContribution)
+            // console.log("employerContribution", employerContribution)
             endOfYearTotalBeforeInterest += employerContribution
         }
         else {
-            console.log("realEmployerMatch", realEmployerMatch)
+            // console.log("realEmployerMatch", realEmployerMatch)
             endOfYearTotalBeforeInterest += realEmployerMatch
         }
 
