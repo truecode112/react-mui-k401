@@ -1,4 +1,4 @@
-export default function({contribPercent, annualSalary, annualRaise, currentAge, retirementAge, currentBalance, annualRateOfReturn, employerMatch, employerMatchCap}) {
+export default function({contribPercent, annualSalary, annualRaise, currentAge, retirementAge, currentBalance, annualRateOfReturn, employerMatch, employerMatchCap, employerSetType}) {
 
     let data = []
 
@@ -20,11 +20,16 @@ export default function({contribPercent, annualSalary, annualRaise, currentAge, 
 
         let startingBalance = i === 0 ? currentBalance : valArray[i-1]
 
-        let realEmployerMatchPercent = employerMatchCap; //contribPercent > employerMatchCap ? employerMatchCap : contribPercent
+        let realEmployerMatch = employeeContribition * (employerMatchCap/100); //contribPercent > employerMatchCap ? employerMatchCap : contribPercent
 
-        let employerContribution = employeeContribition * (employerMatch/100)
+        let employerContribution = annualSalary * (employerMatch/100)
 
-        let endOfYearTotalBeforeInterest = startingBalance + employeeContribition + employerContribution
+        let endOfYearTotalBeforeInterest = startingBalance + employeeContribition
+        
+        if( employerSetType == 0 )
+            endOfYearTotalBeforeInterest += employerContribution
+        else 
+            endOfYearTotalBeforeInterest += realEmployerMatch
 
         let endOfYearTotalAfterInterest = endOfYearTotalBeforeInterest * (1 + (annualRateOfReturn/100))
         
